@@ -60,24 +60,7 @@ class DMEGP(nn.Module):
             loss.backward()
             optimizer.step()
         y_loc, y_var = gp_clone(X_que, noiseless=False)
-        return y_loc, loss
-
-    def forward_var(self, X_sup, Y_sup, X_que, loss_fn, lr, n_adapt):
-        """
-        Return p(Y_que|X_sup, Y_sup, X_que).
-        """
-        gp_clone = self.define_new_GP()
-        params_clone = copy.deepcopy(self.gp_model.state_dict())
-        gp_clone.load_state_dict(params_clone)
-        gp_clone.set_data(X_sup, Y_sup)
-        optimizer = torch.optim.Adam(get_kernel_params(gp_clone), lr=lr)
-        for _ in range(n_adapt):
-            optimizer.zero_grad()
-            loss = loss_fn(gp_clone.model, gp_clone.guide)
-            loss.backward()
-            optimizer.step()
-        y_loc, y_var = gp_clone(X_que, noiseless=False)
-        return y_loc, y_var
+        return y_loc, y_var, loss
 
     def forward_mean(self, X_que):
         """

@@ -38,8 +38,8 @@ def evaluate(model, dataloader, loss_fn, n_adapt, inner_lr, split):
         train_X, train_y = X[:-1, :], y[:-1]
         test_X, test_y = X[-1:, :], y[-1:]
         # model prediction
-        pred, loss_step = model(train_X, train_y, test_X, loss_fn, inner_lr,
-                                n_adapt)
+        pred, pred_var, loss_step = model(train_X, train_y, test_X, loss_fn,
+                                          inner_lr, n_adapt)
         rmse += (pred.item() - test_y.item())**2
         loss += loss_step.item()
 
