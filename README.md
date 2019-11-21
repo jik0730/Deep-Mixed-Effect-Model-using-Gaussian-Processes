@@ -1,6 +1,5 @@
 # Deep Mixed Effect Model using Gaussian Processes: A Personalized and Reliable Prediction for Healthcare
-+ Jihun Yun (KAIST), Peng Zheng (University of Washington), Eunho Yang (KAIST, AITRICS), Aurélie C. Lozano (IBM T.J.
-Watson Research Center), and Aleksandr Aravkin (University of Washington)
++ Ingyo Chung (KAIST), Saehoon Kim (AITRICS), Juho Lee (AITRICS), Kwang Joon Kim (Yonsei University College of Medicine), Sungju Hwang (KAIST, AITRICS), and Eunho Yang (KAIST, AITRICS)
 
 This repository contains implementations for our **AAAI 2020** (to appear) paper "Deep Mixed Effect Model using Gaussian Processes: A Personalized and Reliable Prediction for Healthcare".
 
